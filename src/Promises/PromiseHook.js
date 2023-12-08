@@ -8,6 +8,10 @@ export default function PromiseHook(){
     useEffect(() => {
         console.log("syncFunction")
         syncFunction();
+        console.log("customPromise")
+        customPromise().then( resp =>
+            console.log("customPromise executed")
+        )
         console.log("asyncFunction")
         asyncFunction().then(resp => {
             console.log("asyncFunction executed")
@@ -31,6 +35,16 @@ export default function PromiseHook(){
         }
     }
 
+    const customPromise = async () => {
+        const promise = new Promise((resolve,reject)=> {
+            setTimeout(() => {
+                resolve("This response is created after a second. ")
+            }, 1000);
+        })
+        console.log("This is logged before second.")
+        console.log(await promise)
+    }
+
     const syncFunction = () => {
         axios.get("https://ifconfig.me/all")
         .then(res => {
@@ -38,7 +52,9 @@ export default function PromiseHook(){
         }).catch(err => {
             console.log("oops something went wrong", err)
         })
+        console.log("This is logged before the http call is done.")
     }
+
     const promiseFunction = async () => {
         const promise = new Promise((resolve, reject) => {
             axios.get("https://ifconfig.me/all")
@@ -49,7 +65,9 @@ export default function PromiseHook(){
             })
         })
         console.log(promise);
+        console.log("This is logged before the http call is done.")
         console.log(await promise);
+        console.log("This is logged after the http call is done.")
     }
 
     const multiplePromisesCombined = async () => {
@@ -62,6 +80,7 @@ export default function PromiseHook(){
         //wait for all promises to be resolved
         await Promises.allSettled(promisesToWaitFor)
         console.log(promisesToWaitFor);
+        console.log("This is logged after all the http calls are done.")
     }
 
     return (
