@@ -35,7 +35,7 @@ export default class ClassComponent extends Component{
                 </h1>
                 <span>you clicked {this.state.count} times on the class component</span>
                 <br/>
-                <button onClick={()=> this.setState({count: this.state.count +1 })} >CLick me</button>
+                <button onClick={()=> this.setState({count: this.state.count +1 })} >Click me</button>
             </>
 
 

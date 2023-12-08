@@ -18,13 +18,13 @@ export default function Hook(){
             </h1>
             <span>you clicked {count} times on the Hook </span>
             <br/>
-            <button onClick={()=> setCount(count +1 )} >CLick me</button>
+            <button onClick={()=> setCount(count +1 )} >Click me</button>
 
             <br/>
             <br/>
             <span>secondCount {secondCount} </span>
             <br/>
-            <button onClick={()=> setSecondCount(secondCount +1 )} >CLick me</button>
+            <button onClick={()=> setSecondCount(secondCount +1 )} >Click me</button>
         </div>
     )
 }

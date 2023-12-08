@@ -9,6 +9,6 @@ export function CallbackButton({onCLickCallback}){
     }
 
     return(
-        <button onClick={onCLickHandle} >CLick CallbackButton</button>
+        <button onClick={onCLickHandle} >Click CallbackButton</button>
     )
 }
